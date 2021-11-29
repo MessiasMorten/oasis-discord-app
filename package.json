@@ -1,19 +1,27 @@
 {
   "name": "oasis-discord-app",
   "version": "1.0.0",
-  "description": "A discord app providing live token pricing for the official Oasis Network discord",
+  "description": "Oasis Network Discord app built by Morten Jensen for Oasis Foundation",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MessiasMorten/oasis-discord-app.git"
   },
   "keywords": [
     "crypto",
     "oasis",
-    "network",
-    "privacy"
+    "foundation",
+    "network"
   ],
-  "author": "Morten Jensen / Oasis Network",
+  "author": "Morten Jensen",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MessiasMorten/oasis-discord-app/issues"
+  },
+  "homepage": "https://github.com/MessiasMorten/oasis-discord-app#readme",
   "dependencies": {
     "axios": "^0.24.0",
     "discord.js": "^13.3.1",
