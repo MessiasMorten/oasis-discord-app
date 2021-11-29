@@ -60,7 +60,7 @@ function startMonitoring(server_id) {
             let bull = guildmember.guild.roles.cache.find(r => r.name === "botbull");
 
             console.log(newchangeint);
-            newchangeint=0;
+            newchangeint= -0.2;
 
             //Positive
             if (newchangeint >= 0) {
