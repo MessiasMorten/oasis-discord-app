@@ -49,7 +49,7 @@ function startMonitoring(server_id) {
             let p1 = price[0];
             let p2 = price[1];
 
-            p2 = p2.substring(0,4);
+            p2 = p2.substring(0,5);
             newcurrentprice = p1 + "." + p2;
             newchangestr = change.substring(0,5);
             newchangeint = parseInt(newchangestr);
