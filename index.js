@@ -51,11 +51,9 @@ function startMonitoring(server_id) {
 
             p2 = p2.substring(0,4);
             newcurrentprice = p1 + "." + p2;
-            newchangestr = change.substring(0,6);
+            newchangestr = change.substring(0,2);
             newchangeint = parseInt(newchangestr);
 
-            console.log("currentprice: " + newcurrentprice + " new change str: " + newchangestr);
-            console.log("changeint: " + newchangeint)
             //Build up name change for bot
             let botname;
             let bear = guildmember.guild.roles.cache.find(r => r.name === "botbear");
@@ -66,7 +64,7 @@ function startMonitoring(server_id) {
                 /*
                 botname = newcurrentprice + " +" + newchangestr + "%";
                 guildmember.setNickname(botname); */
-
+                bot.user.setActivity(newcurrentprice + " " + newchangestr + "%", { type: '' });
                 try {
                     guildmember.roles.add(bull);
                     guildmember.roles.remove(bear);
