@@ -16,13 +16,13 @@ let guildmember;
 //Fetch user and member object of bot
 bot.on('ready', () => {
     bot.user.setActivity('Rose @ Binance', ({type: "WATCHING"}));
-    const server = "859080868626300968";
+    const server = String(process.env.OASIS_SERVER_ID);
     startMonitoring(server);
 });
 
 function startMonitoring(server_id) {
 
-    bot.users.fetch('914162738371108915').then((user) => {
+    bot.users.fetch(String(process.env.OASIS_BOT_ID)).then((user) => {
         botobj = user;
     
         const guild = bot.guilds.cache.get(server_id);
@@ -58,9 +58,6 @@ function startMonitoring(server_id) {
             let botname;
             let bear = guildmember.guild.roles.cache.find(r => r.name === "botbear");
             let bull = guildmember.guild.roles.cache.find(r => r.name === "botbull");
-
-            console.log(newchangeint);
-            newchangeint= -0.2;
 
             //Positive
             if (newchangeint >= 0) {
