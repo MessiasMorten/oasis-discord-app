@@ -1,0 +1,20 @@
+{
+  "name": "oasis-discord-app",
+  "version": "1.0.0",
+  "description": "A discord app providing live token pricing for the official Oasis Network discord",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "crypto",
+    "oasis",
+    "network",
+    "privacy"
+  ],
+  "author": "Morten Jensen / Oasis Network",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.24.0"
+  }
+}
