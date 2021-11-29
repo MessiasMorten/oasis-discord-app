@@ -51,7 +51,7 @@ function startMonitoring(server_id) {
 
             p2 = p2.substring(0,4);
             newcurrentprice = p1 + "." + p2;
-            newchangestr = change.substring(0,2);
+            newchangestr = change.substring(0,5);
             newchangeint = parseInt(newchangestr);
 
             //Build up name change for bot
