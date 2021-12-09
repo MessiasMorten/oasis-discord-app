@@ -12,6 +12,7 @@ bot.login(token);
 
 let botobj;
 let guildmember;
+let json;
 
 //Fetch user and member object of bot
 bot.on('ready', () => {
@@ -19,6 +20,22 @@ bot.on('ready', () => {
     const server = String(process.env.OASIS_SERVER_ID);
     startMonitoring(server);
 });
+
+bot.on('message', async (msg) => {
+    const content = msg.content;
+    if (content === "!areWeHappy") {
+     msg.channel.send("We are always happy <:BlueOasis:891988028229300275>");
+    } else if (content === "!debug") {
+        if (json === "") {
+            msg.channel.send("Nothing to report, chief");
+        } else {
+            msg.channel.send(json);
+        }
+    } else if (content === "!faq") {
+        msg.channel.send("This feature has not been implemented. Stay tuned.");
+    }
+ 
+ });
 
 function startMonitoring(server_id) {
 
@@ -40,9 +57,9 @@ function startMonitoring(server_id) {
             .get("https://api.binance.com/api/v3/ticker/24hr?symbol=ROSEUSDT")
             .then(response => jsondata = response.data) 
 
+            json = jsondata;
             currentprice = jsondata['lastPrice'];
             change = jsondata['priceChangePercent'];
-
             //Trim price and change strings
             const price = currentprice.split(".");
             
@@ -53,7 +70,6 @@ function startMonitoring(server_id) {
             newcurrentprice = p1 + "." + p2;
             newchangestr = change.substring(0,5);
             newchangeint = parseFloat(change);
-            console.log(change);
 
             //Bot activity change
             let bear = guildmember.guild.roles.cache.find(r => r.name === "botbear");
@@ -61,9 +77,7 @@ function startMonitoring(server_id) {
 
             //Positive
             if (newchangeint >= 0) {
-                /*
-                botname = newcurrentprice + " +" + newchangestr + "%";
-                guildmember.setNickname(botname); */
+
                 bot.user.setActivity(newcurrentprice + " " + newchangestr + "%", { type: '' });
                 try {
                     guildmember.roles.add(bull);
@@ -75,10 +89,7 @@ function startMonitoring(server_id) {
             
             //Negative    
             } else {
-                /*
-                botname = newcurrentprice + " " + newchangestr + "%";
-                guildmember.setNickname(botname);
-                */
+
                 bot.user.setActivity(newcurrentprice + " " + newchangestr + "%", { type: '' });
                 try {
                     guildmember.roles.add(bear);
@@ -90,7 +101,6 @@ function startMonitoring(server_id) {
             }
 
         } catch {
-            console.log(jsondata);
         }
 
 
