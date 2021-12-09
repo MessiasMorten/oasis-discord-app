@@ -52,10 +52,10 @@ function startMonitoring(server_id) {
             p2 = p2.substring(0,5);
             newcurrentprice = p1 + "." + p2;
             newchangestr = change.substring(0,5);
-            newchangeint = parseFloat(newchangestr);
+            newchangeint = parseFloat(change);
+            console.log(change);
 
-            //Build up name change for bot
-            let botname;
+            //Bot activity change
             let bear = guildmember.guild.roles.cache.find(r => r.name === "botbear");
             let bull = guildmember.guild.roles.cache.find(r => r.name === "botbull");
 
