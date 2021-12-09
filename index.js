@@ -23,7 +23,7 @@ bot.on('ready', () => {
 
 bot.on('message', async (msg) => {
     const content = msg.content;
-    if (content === "!areWeHappy") {
+    if (content === "!arewehappy") {
      msg.channel.send("We are always happy <:BlueOasis:891988028229300275>");
     } else if (content === "!debug") {
         if (json === "") {
