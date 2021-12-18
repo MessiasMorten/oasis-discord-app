@@ -84,8 +84,8 @@ function startMonitoring(server_id) {
                 try {
                     guildmember.roles.add(bull);
                     guildmember.roles.remove(bear);
-                } catch {
-
+                } catch (error) {
+                    console.log(error);
                 }
 
             
