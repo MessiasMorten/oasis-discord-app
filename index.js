@@ -78,7 +78,7 @@ function startMonitoring(server_id) {
             console.log("Change variable: " + newchangeint);
 
             //Positive
-            if (newchangeint >= 0) {
+            if (newchangeint >= 0.00) {
 
                 bot.user.setActivity(newcurrentprice + " +" + newchangestr + "%", { type: '' });
                 try {
