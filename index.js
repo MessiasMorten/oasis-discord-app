@@ -26,10 +26,10 @@ bot.on('message', async (msg) => {
     if (content === "!arewehappy") {
      msg.channel.send("We are always happy <:BlueOasis:891988028229300275>");
     } else if (content === "!debug") {
-        if (json === "") {
+        if (json === null) {
             msg.channel.send("Nothing to report, chief");
         } else {
-            msg.channel.send(json);
+            msg.channel.send("Debug: " + JSON.stringify(json));
         }
     } else if (content === "!faq") {
         msg.channel.send("This feature has not been implemented. Stay tuned.");
@@ -75,10 +75,12 @@ function startMonitoring(server_id) {
             let bear = guildmember.guild.roles.cache.find(r => r.name === "botbear");
             let bull = guildmember.guild.roles.cache.find(r => r.name === "botbull");
 
+            console.log("Change variable: " + newchangeint);
+
             //Positive
             if (newchangeint >= 0) {
 
-                bot.user.setActivity(newcurrentprice + " " + newchangestr + "%", { type: '' });
+                bot.user.setActivity(newcurrentprice + " +" + newchangestr + "%", { type: '' });
                 try {
                     guildmember.roles.add(bull);
                     guildmember.roles.remove(bear);
